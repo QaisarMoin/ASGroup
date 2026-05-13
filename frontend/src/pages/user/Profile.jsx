@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { userAPI } from '../../services/api';
+import { userAPI, BACKEND_URL } from '../../services/api';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import toast from 'react-hot-toast';
@@ -18,7 +18,7 @@ const Profile = () => {
   useEffect(() => {
     if (user) {
       setProfile({ fullName: user.fullName || '', email: user.email || '', phone: user.phone || '' });
-      setPreviewUrl(user.profileImage ? `/uploads/${user.profileImage.split('/').pop()}` : '');
+      setPreviewUrl(user.profileImage ? `${BACKEND_URL}/uploads/${user.profileImage.split('/').pop()}` : '');
     }
   }, [user]);
 

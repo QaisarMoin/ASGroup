@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { adminAPI } from '../../services/api';
+import { adminAPI, BACKEND_URL } from '../../services/api';
 import AdminLayout from '../../layouts/AdminLayout';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import Badge from '../../components/Badge';
@@ -111,8 +111,8 @@ const KYCManagement = () => {
               ))}
             </div>
             <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
-              <a href={selected.aadhaarImage} target="_blank" rel="noreferrer" style={{ flex: 1, textAlign: 'center', padding: '10px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 10, color: '#a5b4fc', textDecoration: 'none', fontSize: '0.85rem' }}>View Aadhaar</a>
-              <a href={selected.panImage} target="_blank" rel="noreferrer" style={{ flex: 1, textAlign: 'center', padding: '10px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 10, color: '#a5b4fc', textDecoration: 'none', fontSize: '0.85rem' }}>View PAN</a>
+              <a href={`${BACKEND_URL}/${selected.aadhaarImage}`} target="_blank" rel="noreferrer" style={{ flex: 1, textAlign: 'center', padding: '10px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 10, color: '#a5b4fc', textDecoration: 'none', fontSize: '0.85rem' }}>View Aadhaar</a>
+              <a href={`${BACKEND_URL}/${selected.panImage}`} target="_blank" rel="noreferrer" style={{ flex: 1, textAlign: 'center', padding: '10px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 10, color: '#a5b4fc', textDecoration: 'none', fontSize: '0.85rem' }}>View PAN</a>
             </div>
             <div style={{ marginBottom: 16 }}>
               <label style={{ display: 'block', marginBottom: 6, fontSize: '0.85rem', fontWeight: 600 }}>Admin Remark</label>

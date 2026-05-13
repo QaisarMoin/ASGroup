@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+export const BACKEND_URL = 'https://asgroup-9icv.onrender.com';
+
 const API = axios.create({
-  baseURL: '/api',
+  baseURL: `${BACKEND_URL}/api`,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });
