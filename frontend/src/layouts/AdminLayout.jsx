@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import {
   FiHome, FiUsers, FiShield, FiList, FiSettings, FiDollarSign,
-  FiLogOut, FiMenu, FiArrowDownCircle, FiBarChart2, FiChevronRight
+  FiLogOut, FiMenu, FiX, FiArrowDownCircle, FiBarChart2, FiChevronRight
 } from 'react-icons/fi';
 
 const adminNavItems = [
@@ -36,20 +36,21 @@ const AdminLayout = ({ children }) => {
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setSidebarOpen(false)}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 40 }}
-            className="lg:hidden"
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 105 }}
+            className="lg-hidden"
           />
         )}
       </AnimatePresence>
 
       <aside
+        className={`sidebar ${sidebarOpen ? 'open' : ''}`}
         style={{
           width: 260, flexShrink: 0, background: 'rgba(10,10,26,0.97)', backdropFilter: 'blur(20px)',
           borderRight: '1px solid rgba(99,102,241,0.15)', display: 'flex', flexDirection: 'column',
-          position: 'fixed', top: 0, bottom: 0, left: 0, zIndex: 50,
+          position: 'fixed', top: 0, bottom: 0, left: 0, zIndex: 110,
         }}
       >
-        <div style={{ padding: '24px 20px', borderBottom: '1px solid rgba(99,102,241,0.15)' }}>
+        <div style={{ padding: '24px 20px', borderBottom: '1px solid rgba(99,102,241,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{ width: 40, height: 40, borderRadius: 12, background: 'linear-gradient(135deg,#ef4444,#f97316)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 16 }}>
               ADM
@@ -59,6 +60,13 @@ const AdminLayout = ({ children }) => {
               <p style={{ fontSize: '0.75rem', color: 'rgba(251,146,60,0.7)' }}>AS Group MLM</p>
             </div>
           </div>
+          <button 
+            className="lg-hidden" 
+            onClick={() => setSidebarOpen(false)}
+            style={{ background: 'none', border: 'none', color: 'rgba(226,232,240,0.5)', cursor: 'pointer', padding: 4 }}
+          >
+            <FiX size={20} />
+          </button>
         </div>
 
         <div style={{ padding: '12px 20px', borderBottom: '1px solid rgba(99,102,241,0.1)' }}>
@@ -112,9 +120,9 @@ const AdminLayout = ({ children }) => {
         </div>
       </aside>
 
-      <div style={{ flex: 1, marginLeft: 260, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, marginLeft: 260, minHeight: '100vh', display: 'flex', flexDirection: 'column', maxWidth: '100%', overflowX: 'hidden' }} className="responsive-main">
         <header style={{ background: 'rgba(10,10,26,0.95)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(239,68,68,0.15)', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 30 }}>
-          <button onClick={() => setSidebarOpen(true)} style={{ background: 'none', border: 'none', color: '#e2e8f0', cursor: 'pointer' }} className="lg:hidden">
+          <button onClick={() => setSidebarOpen(true)} style={{ background: 'none', border: 'none', color: '#e2e8f0', cursor: 'pointer' }} className="lg-hidden">
             <FiMenu size={22} />
           </button>
           <h1 style={{ fontWeight: 700, fontSize: '1.1rem', fontFamily: 'Outfit, sans-serif', color: '#f87171', marginLeft: 'auto' }}>
@@ -122,12 +130,19 @@ const AdminLayout = ({ children }) => {
           </h1>
         </header>
 
-        <main style={{ flex: 1, padding: 24 }}>
+        <main style={{ flex: 1, padding: '16px' }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
             {children}
           </motion.div>
         </main>
       </div>
+
+      <style>{`
+        @media (max-width: 1024px) {
+          .responsive-main { margin-left: 0 !important; }
+          .lg-hidden { display: block !important; }
+        }
+      `}</style>
     </div>
   );
 };
