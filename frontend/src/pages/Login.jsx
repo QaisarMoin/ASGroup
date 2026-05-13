@@ -56,7 +56,7 @@ const Login = () => {
                 <FiMail style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'rgba(165,180,252,0.5)' }} />
                 <input
                   type="email" name="email" value={form.email} onChange={handleChange}
-                  className="input" placeholder="admin@asgroup.com"
+                  className="input" placeholder="qaisarashraf685@gmail.com"
                   style={{ paddingLeft: 40 }} autoComplete="email"
                 />
               </div>
@@ -88,8 +88,9 @@ const Login = () => {
           </p>
         </div>
 
-        <p style={{ textAlign: 'center', marginTop: 24, color: 'rgba(165,180,252,0.4)', fontSize: '0.8rem' }}>
-          Admin: admin@asgroup.com / Admin@123
+        <p style={{ textAlign: 'center', marginTop: 24, color: '#fff', fontSize: '0.8rem' }}>
+          Admin:
+          Email-  qaisarashraf685@gmail.com / Pass -qaisarashraf685@gmail.com
         </p>
       </motion.div>
     </div>
