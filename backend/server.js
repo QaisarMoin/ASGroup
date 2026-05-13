@@ -19,9 +19,15 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: [process.env.CLIENT_URL || 'http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: [
+    process.env.CLIENT_URL,
+    'https://as-group.vercel.app',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173'
+  ].filter(Boolean),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  optionsSuccessStatus: 200
 }));
 
 app.use(express.json({ limit: '10mb' }));
