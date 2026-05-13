@@ -37,7 +37,7 @@ const AdminDashboard = () => {
         <StatCard icon={FiTrendingUp} title="Total Commissions" value={`Rs.${(stats?.totalEarnings || 0).toFixed(0)}`} color="cyan" />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
         <div className="card" style={{ gridColumn: 'span 2' }}>
           <h3 style={{ fontWeight: 700, marginBottom: 16 }}>Monthly User Growth</h3>
           <ResponsiveContainer width="100%" height={220}>

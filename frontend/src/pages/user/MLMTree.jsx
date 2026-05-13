@@ -61,10 +61,10 @@ const MLMTree = () => {
 
   return (
     <DashboardLayout>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20 }}>
+      <div className="mobile-column" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20 }}>
         <div>
-          <h1 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.8rem', marginBottom: 4, background: 'linear-gradient(to right, #fff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>My Network Tree</h1>
-          <p style={{ color: 'rgba(165,180,252,0.6)', fontSize: '0.9rem' }}>Interactive visualization of your team hierarchy</p>
+          <h1 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1.2rem, 5vw, 1.8rem)', marginBottom: 4, background: 'linear-gradient(to right, #fff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>My Network Tree</h1>
+          <p style={{ color: 'rgba(165,180,252,0.6)', fontSize: '0.85rem' }}>Interactive visualization of your team hierarchy</p>
         </div>
         <div style={{ background: 'rgba(99,102,241,0.1)', padding: '8px 16px', borderRadius: 12, border: '1px solid rgba(99,102,241,0.2)', fontSize: '0.85rem' }}>
           Total Team: <span style={{ color: '#6366f1', fontWeight: 800 }}>{treeData ? countNodes(treeData) : 0}</span>
@@ -92,10 +92,9 @@ const MLMTree = () => {
               transitionDuration={500}
             />
           </div>
-          <div style={{ padding: '16px 24px', background: 'rgba(15,15,35,0.8)', borderTop: '1px solid rgba(99,102,241,0.1)', display: 'flex', gap: 24, fontSize: '0.85rem', color: 'rgba(165,180,252,0.6)' }}>
+          <div style={{ padding: '16px 24px', background: 'rgba(15,15,35,0.8)', borderTop: '1px solid rgba(99,102,241,0.1)', display: 'flex', flexWrap: 'wrap', gap: 16, fontSize: '0.75rem', color: 'rgba(165,180,252,0.6)' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>🖱️ Drag to pan</span>
             <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>🔍 Scroll to zoom</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>👆 Hover for details</span>
           </div>
         </div>
       )}

@@ -43,8 +43,8 @@ const DashboardLayout = ({ children }) => {
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setSidebarOpen(false)}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 40, display: 'block' }}
-            className="lg:hidden"
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 105 }}
+            className="lg-hidden"
           />
         )}
       </AnimatePresence>
@@ -54,13 +54,12 @@ const DashboardLayout = ({ children }) => {
         className={`sidebar ${sidebarOpen ? 'open' : ''}`}
         style={{
           width: 260, flexShrink: 0, display: 'flex', flexDirection: 'column',
-          position: 'fixed', top: 0, bottom: 0, left: 0, zIndex: 50,
-          transform: sidebarOpen ? 'translateX(0)' : undefined,
+          position: 'fixed', top: 0, bottom: 0, left: 0, zIndex: 110,
         }}
         initial={false}
       >
         {/* Logo */}
-        <div style={{ padding: '24px 20px', borderBottom: '1px solid rgba(99,102,241,0.15)' }}>
+        <div style={{ padding: '24px 20px', borderBottom: '1px solid rgba(99,102,241,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div className="gradient-bg" style={{ width: 40, height: 40, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 18 }}>
               AS
@@ -70,6 +69,13 @@ const DashboardLayout = ({ children }) => {
               <p style={{ fontSize: '0.75rem', color: 'rgba(165,180,252,0.7)' }}>MLM Platform</p>
             </div>
           </div>
+          <button 
+            className="lg-hidden" 
+            onClick={() => setSidebarOpen(false)}
+            style={{ background: 'none', border: 'none', color: 'rgba(226,232,240,0.5)', cursor: 'pointer', padding: 4 }}
+          >
+            <FiX size={20} />
+          </button>
         </div>
 
         {/* User info */}
@@ -144,11 +150,11 @@ const DashboardLayout = ({ children }) => {
       </motion.aside>
 
       {/* Main content */}
-      <div style={{ flex: 1, marginLeft: 260, display: 'flex', flexDirection: 'column', minHeight: '100vh' }} className="responsive-main">
+      <div style={{ flex: 1, marginLeft: 260, display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%', maxWidth: '100%', overflowX: 'hidden' }} className="responsive-main">
         {/* Top bar */}
         <header style={{ background: 'rgba(15,15,35,0.9)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(99,102,241,0.15)', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 30 }}>
           <button
-            className="lg:hidden"
+            className="lg-hidden"
             onClick={() => setSidebarOpen(true)}
             style={{ background: 'none', border: 'none', color: '#e2e8f0', cursor: 'pointer', padding: 8 }}
           >
@@ -164,7 +170,7 @@ const DashboardLayout = ({ children }) => {
           </div>
         </header>
 
-        <main style={{ flex: 1, padding: '24px', overflowY: 'auto' }}>
+        <main style={{ flex: 1, padding: '16px', overflowY: 'auto' }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
             {children}
           </motion.div>

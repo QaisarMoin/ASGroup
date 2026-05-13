@@ -69,7 +69,7 @@ const Profile = () => {
     <DashboardLayout>
       <h1 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.5rem', marginBottom: 24 }}>My Profile</h1>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
         {/* Profile update */}
         <div className="card">
           <h2 style={{ fontWeight: 700, fontSize: '1rem', marginBottom: 20 }}>Personal Information</h2>

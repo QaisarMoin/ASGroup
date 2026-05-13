@@ -93,7 +93,7 @@ const UserDashboard = () => {
         ))}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
         {/* Chart */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="card" style={{ gridColumn: 'span 2' }}>
           <h3 style={{ fontWeight: 700, marginBottom: 20, fontSize: '1rem' }}>Recent Earnings</h3>
